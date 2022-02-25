@@ -11,7 +11,7 @@
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
                 
                 <div class="container mx-auto px-6 py-8">
-                    <h3 class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-center text-3xl leading-4 font-medium text-white uppercase tracking-wider sm:rounded-lg">Contact Directory</h3>
+                    <h3 class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-center text-3xl leading-4 font-medium text-white uppercase tracking-wider sm:rounded-lg">Contact : Jeff Bezos</h3>
                     <br><br>
                     <div class="flex flex-col mt-8">
                         
@@ -21,19 +21,19 @@
                                 <table class="min-w-full">
                                     <thead>
                                         <tr>
-                                            <h4 class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-left text-xs leading-4 font-medium text-white uppercase tracking-wider">Contacts</h4>
+                                            <h4 class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-left text-xs leading-4 font-medium text-white uppercase tracking-wider">Détails Contact</h4>
                                             <th
                                                 class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                Name</th>
+                                                Contact</th>
                                             <th
                                                 class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                Phone</th>
+                                                Company</th>
                                             <th
                                                 class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                                 E-mail</th>
                                             <th
                                                 class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                Company</th>
+                                                Phone</th>
                                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
                                         </tr>
                                     </thead>
@@ -42,26 +42,26 @@
                                         <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <div class="flex items-center">
-                                                    <div class="ml-4">
+                                                    
                                                    
-                                                        <div class="text-sm leading-5 text-gray-500">Jeff Bezos</div>
-                                                    </div>
+                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcontact">Jeff Bezos</a></div>
+                                                   
                                                 </div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                            
-                                                <div class="text-sm leading-5 text-gray-500">0472.59.29.80</div>
+                                                <div class="text-sm leading-5 text-gray-500">Amazon</div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <span
-                                                    class="text-sm leading-5 text-gray-500">francisfrancois9189@gmail.com</span>
+                                                    class="text-sm leading-5 text-gray-500">jeffbezos@gmail.com</span>
                                             </td>
     
                                             <td
                                                 class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                                Amazon</td>
+                                                0472/59.29.80</td>
     
                                             <td
                                                 class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
@@ -70,10 +70,73 @@
                                 
                                         </tr>
                                     </tbody>
+                                    
                                 </table>
                             </div>
                         </div>
                     </div>
+                    <div class="flex flex-col mt-8">
+                        
+                      <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                          <div
+                              class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+                              <table class="min-w-full">
+                                  <thead>
+                                      <tr>
+                                          <h4 class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-left text-xs leading-4 font-medium text-white uppercase tracking-wider">Invoice</h4>
+                                          <th
+                                              class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                              Invoice Number</th>
+                                          <th
+                                              class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                              Date</th>
+                                          <th
+                                              class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                              </th>
+                                          <th
+                                              class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                              </th>
+                                          <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
+                                      </tr>
+                                  </thead>
+  
+                                  <tbody class="bg-white">
+                                      <tr>
+                                          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                              <div class="flex items-center">
+                                                  
+                                                 
+                                                      <div class="text-sm leading-5 text-gray-500"><a href="/detailinvoice">F509-306</a></div>
+                                                 
+                                              </div>
+                                          </td>
+  
+                                          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                         
+                                              <div class="text-sm leading-5 text-gray-500">24/02/2022</div>
+                                          </td>
+  
+                                          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                              <span
+                                                  class="text-sm leading-5 text-gray-500"></span>
+                                          </td>
+  
+                                          <td
+                                              class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                                              </td>
+  
+                                          <td
+                                              class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
+                                              <a href="#" class="text-indigo-600 hover:text-indigo-900"></a>
+                                          </td>
+                              
+                                      </tr>
+                                  </tbody>
+                                  
+                              </table>
+                          </div>
+                      </div>
+                  </div>
            
                 </div>
             </main>

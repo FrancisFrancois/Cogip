@@ -49,6 +49,14 @@ Route::get('/detailcontact', function () {
     return view('layouts.detailcontact');
 });
 
+Route::get('/detailcompany', function () {
+    return view('layouts.detailcompany');
+});
+
+Route::get('/detailinvoice', function () {
+    return view('layouts.detailinvoice');
+});
+
 
 
 
@@ -57,4 +65,4 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

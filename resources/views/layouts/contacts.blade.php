@@ -42,10 +42,10 @@
                                         <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <div class="flex items-center">
-                                                    <div class="ml-4">
+                                                    
                                                    
-                                                        <div class="text-sm leading-5 text-gray-500">Jeff Bezos</div>
-                                                    </div>
+                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcontact">Jeff Bezos</a></div>
+                                                   
                                                 </div>
                                             </td>
     

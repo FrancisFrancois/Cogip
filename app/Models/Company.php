@@ -15,4 +15,9 @@ class Company extends Model
         'vat_number',
         'category'
     ];
+
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
+    }
 }

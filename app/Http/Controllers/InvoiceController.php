@@ -15,10 +15,12 @@ class InvoiceController extends Controller
      */
     public function index()
     {
+        //$invoice = Invoice::all();
+        
         return view('invoices.invoices')
         ->with('invoices', Invoice::orderByRaw('coalesce(updated_at, created_at) DESC')
         ->get());
-           
+        
     }
 
     /**

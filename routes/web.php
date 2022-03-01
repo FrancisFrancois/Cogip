@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\InvoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +22,17 @@ Route::get('/companies', function () {
     return view('companies.companies');
 });
 
-Route::get('/invoices', function () {
-return view('invoices.invoices');
-});
 
-Route::get('/contacts', function () {
-    return view('contacts.contacts');
-});
+
+
+
+Route::get('/invoices', [InvoiceController::class, 'index']);
+
+Route::get('/contacts', [ContactController::class, 'index']);
+
+
+
+
 
 Route::get('/newinvoice', function () {
     return view('edit.newinvoice');

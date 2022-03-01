@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use App\Models\Contact;
+use App\Models\Company;
 
 class ContactController extends Controller
 {
@@ -15,7 +16,11 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        
+        return view('contacts.contacts')
+        ->with('contacts', Contact::orderBy('lastname')
+        ->get());
+
     }
 
     /**
@@ -36,8 +41,9 @@ class ContactController extends Controller
      */
     public function store(StoreContactRequest $request)
     {
-        //
+       //
     }
+    
 
     /**
      * Display the specified resource.

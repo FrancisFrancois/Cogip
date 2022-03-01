@@ -37,31 +37,33 @@
                                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
                                         </tr>
                                     </thead>
-    
+                                    
+                                @foreach ($invoices as $invoice)
                                     <tbody class="bg-white">
                                         <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <div class="flex items-center">
                                                    
                                                        
-                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailinvoice">F400-330</a></div>
+                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailinvoice">{{ $invoice->invoice_number }}</a></div>
                                                   
                                                 </div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                            
-                                                <div class="text-sm leading-5 text-gray-500">23/02/2022</div>
+                                                <div class="text-sm leading-5 text-gray-500">{{ $invoice->created_at }}</div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <span
-                                                    class="text-sm leading-5 text-gray-500">Tesla</span>
+                                                    class="text-sm leading-5 text-gray-500">{{ $invoice->company->name }}</span>
                                             </td>
     
                                             <td
                                                 class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                                Client</td>
+                                                {{ $invoice->category }}</td>
+                                            @endforeach
     
                                             <td
                                                 class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">

@@ -1287,6 +1287,26 @@ select {
   padding-left: 20rem;
   padding-right: 20rem;
 }
+.px-40 {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+.px-60 {
+  padding-left: 15rem;
+  padding-right: 15rem;
+}
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.px-24 {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
 .pt-8 {
   padding-top: 2rem;
 }

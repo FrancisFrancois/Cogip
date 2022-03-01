@@ -58,19 +58,18 @@
 
             <span class="mx-3">Contacts</span>
         </a>
-
+        
         <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-            href="/admin">
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
-                </path>
-            </svg>
+        href="/admin">
+        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+    </path>
+</svg>
 
-            <span class="mx-3">Admin</span>
-        </a>
-
+<span class="mx-3">Admin</span>
+</a>
 
     </nav>
 </div>
@@ -112,10 +111,12 @@
                 <div x-show="dropdownOpen"
                     class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10"
                     style="display: none;">
-                    <a href="#"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Profile</a>
-                    <a href="/login"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Logout</a>
+                    
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button href="/login" type="submit"
+                                class="block px-20 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Logout</button>
+                        </form>
                 </div>
             </div>
         </div>

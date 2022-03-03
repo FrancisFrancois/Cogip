@@ -45,7 +45,7 @@
                                                 <div class="flex items-center">
                                                     
                                                    
-                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcontact">{{ $contact->firstname }} {{ $contact->lastname }}</a></div>
+                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcontact/{{ $contact->id }}">{{ $contact->firstname }} {{ $contact->lastname }}</a></div>
                                                    
                                                 </div>
                                             </td>

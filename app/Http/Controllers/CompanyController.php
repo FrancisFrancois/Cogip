@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
 use App\Models\Company;
+use App\Models\Contact;
 
 class CompanyController extends Controller
 {
@@ -15,7 +16,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        return view('companies.companies')
+        ->with('companies', Company::orderBy('name')
+        ->get());
     }
 
     /**
@@ -45,9 +48,11 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show($id)
     {
-        //
+        return view('companies.detailcompany')
+        ->with('company', Company::where('id', $id)
+        ->first());
     }
 
     /**

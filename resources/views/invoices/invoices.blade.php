@@ -45,14 +45,14 @@
                                                 <div class="flex items-center">
                                                    
                                                        
-                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailinvoice">{{ $invoice->invoice_number }}</a></div>
+                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailinvoice/{{ $invoice->id }}">{{ $invoice->invoice_number }}</a></div>
                                                   
                                                 </div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                            
-                                                <div class="text-sm leading-5 text-gray-500">{{ $invoice->created_at }}</div>
+                                                <div class="text-sm leading-5 text-gray-500">{{ $invoice->created_at->format('d M Y') }}</div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">

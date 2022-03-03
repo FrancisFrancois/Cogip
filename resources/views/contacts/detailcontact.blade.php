@@ -11,7 +11,7 @@
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
                 
                 <div class="container mx-auto px-6 py-8">
-                    <h3 class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-center text-3xl leading-4 font-medium text-white uppercase tracking-wider sm:rounded-lg">Contact : Jeff Bezos</h3>
+                    <h3 class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-center text-3xl leading-4 font-medium text-white uppercase tracking-wider sm:rounded-lg">Contact : {{ $contact->firstname }} {{ $contact->lastname}}</h3>
                     <br><br>
                     <div class="flex flex-col mt-8">
                         
@@ -44,24 +44,24 @@
                                                 <div class="flex items-center">
                                                     
                                                    
-                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcontact">Jeff Bezos</a></div>
+                                                        <div class="text-sm leading-5 text-gray-500">{{ $contact->firstname }} {{ $contact->lastname}}</div>
                                                    
                                                 </div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                            
-                                                <div class="text-sm leading-5 text-gray-500">Amazon</div>
+                                                <div class="text-sm leading-5 text-gray-500">{{ $contact->company->name}}</div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <span
-                                                    class="text-sm leading-5 text-gray-500">jeffbezos@gmail.com</span>
+                                                    class="text-sm leading-5 text-gray-500">{{ $contact->email}}</span>
                                             </td>
     
                                             <td
                                                 class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                                0472/59.29.80</td>
+                                                {{ $contact->phone_number}}</td>
     
                                             <td
                                                 class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
@@ -99,21 +99,21 @@
                                           <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
                                       </tr>
                                   </thead>
-  
+                                @foreach ($contact->invoices as $invoice)
                                   <tbody class="bg-white">
                                       <tr>
                                           <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                               <div class="flex items-center">
                                                   
                                                  
-                                                      <div class="text-sm leading-5 text-gray-500"><a href="/detailinvoice">F509-306</a></div>
+                                                      <div class="text-sm leading-5 text-gray-500"><a href="/detailinvoice">{{ $invoice->invoice_number }}</a></div>
                                                  
                                               </div>
                                           </td>
   
                                           <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                          
-                                              <div class="text-sm leading-5 text-gray-500">24/02/2022</div>
+                                              <div class="text-sm leading-5 text-gray-500">{{ $invoice->created_at->format('d M Y') }}</div>
                                           </td>
   
                                           <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
@@ -132,7 +132,7 @@
                               
                                       </tr>
                                   </tbody>
-                                  
+                                @endforeach
                               </table>
                           </div>
                       </div>

@@ -51,9 +51,11 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show($id)
     {
-        //
+        return view('contacts.detailcontact')
+        ->with('contact', Contact::where('id', $id)
+        ->first());
     }
 
     /**

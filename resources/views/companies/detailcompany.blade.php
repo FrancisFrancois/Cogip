@@ -10,7 +10,7 @@
 
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
                 <div class="container mx-auto px-6 py-8">
-                    <h3 class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-center text-3xl leading-4 font-medium text-white uppercase tracking-wider sm:rounded-lg">Company : Tesla</h3>
+                    <h3 class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-center text-3xl leading-4 font-medium text-white uppercase tracking-wider sm:rounded-lg">Company : {{ $company->name }}</h3>
 
                     <div class="flex flex-col mt-8">
                         <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
@@ -24,7 +24,7 @@
                                                 TVA</th>
                                             <th
                                                 class="px-12 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                BE0999999999</th>
+                                                {{ $company->vat_number}}</th>
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white">
@@ -34,7 +34,7 @@
                                                 Type</th>
                                             <th
                                                 class="px-12 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                                Supplier</th>
+                                                {{ $company->category }}</th>
                                         </tr>
                                         </tr>
                                     </tbody>
@@ -66,24 +66,25 @@
                                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
                                         </tr>
                                     </thead>
+                                @foreach ($company->contacts as $contact)
                                     <tbody class="bg-white">
                                         <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <div class="flex items-center">
-                                                   
-                                                        <div class="text-sm leading-5 text-gray-500">Elon Musk</div>
-                                                   
+
+                                                        <div class="text-sm leading-5 text-gray-500"> {{ $contact->firstname }} {{ $contact->lastname }}</div>
+                                                 
                                                 </div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                            
-                                                <div class="text-sm leading-5 text-gray-500">0472/59.29.80</div>
+                                                <div class="text-sm leading-5 text-gray-500">{{ $contact->phone_number }}</div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <span
-                                                    class="text-sm leading-5 text-gray-500">elonmusk@gmail.com</span>
+                                                    class="text-sm leading-5 text-gray-500">{{ $contact->email }}</span>
                                             </td>
     
                                             <td
@@ -96,6 +97,7 @@
                                             </td>
                                         </tr>
                                     </tbody>
+                                @endforeach
                                 </table>
                             </div>
                         </div>
@@ -125,25 +127,29 @@
                                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
                                         </tr>
                                     </thead>
+
+                                @foreach ($company->contacts as $contact)
+                                    @foreach ($contact->invoices as $invoice)
+                                    
                                     <tbody class="bg-white">
                                         <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <div class="flex items-center">
                                              
                                                        
-                                                        <div class="text-sm leading-5 text-gray-500">F400-330</div>
+                                                        <div class="text-sm leading-5 text-gray-500">{{ $invoice->invoice_number }}</div>
                                                     
                                                 </div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                            
-                                                <div class="text-sm leading-5 text-gray-500">24/02/2022</div>
+                                                <div class="text-sm leading-5 text-gray-500">{{ $invoice->created_at->format('Y-m-d') }}</div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <span
-                                                    class="text-sm leading-5 text-gray-500">Elon Musk</span>
+                                                    class="text-sm leading-5 text-gray-500"> {{ $invoice->contact->firstname}} {{ $invoice->contact->lastname}}</span>
                                             </td>
     
                                             <td
@@ -156,6 +162,8 @@
                                             </td>
                                         </tr>
                                     </tbody>
+                                     @endforeach
+                                @endforeach
                                 </table>
                             </div>
                         </div>

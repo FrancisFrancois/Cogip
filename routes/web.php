@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,17 +19,33 @@ Route::get('/', function () {
     return view('layouts.app');
 });
 
-Route::get('/companies', function () {
-    return view('companies.companies');
-});
 
+
+
+Route::get('/companies', [CompanyController::class, 'index']);
+
+Route::get('/detailcompany/{id}', [CompanyController::class, 'show'])
+->where(['id' => '[0-9]+']);
 
 
 
 
 Route::get('/invoices', [InvoiceController::class, 'index']);
 
+Route::get('/detailinvoice/{id}', [InvoiceController::class, 'show'])
+->where(['id' => '[0-9]+']);
+
+
+
+
+
+
 Route::get('/contacts', [ContactController::class, 'index']);
+
+Route::get('/detailcontact/{id}', [ContactController::class, 'show'])
+->where(['id' => '[0-9]+']);
+
+
 
 
 
@@ -50,9 +67,7 @@ Route::get('/detailcontact', function () {
     return view('contacts.detailcontact');
 });
 
-Route::get('/detailcompany', function () {
-    return view('companies.detailcompany');
-});
+
 
 Route::get('/detailinvoice', function () {
     return view('invoices.detailinvoice');

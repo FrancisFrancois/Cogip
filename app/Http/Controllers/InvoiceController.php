@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreInvoiceRequest;
 use App\Http\Requests\UpdateInvoiceRequest;
 use App\Models\Invoice;
+use App\Models\Contact;
 
 class InvoiceController extends Controller
 {
@@ -30,7 +31,7 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-      
+        //
     }
 
     /**
@@ -50,9 +51,11 @@ class InvoiceController extends Controller
      * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoice $invoice)
+    public function show($id)
     {
-        
+        return view('invoices.detailinvoice')
+        ->with('invoice', Invoice::where('id', $id)
+        ->first());
     }
 
     /**

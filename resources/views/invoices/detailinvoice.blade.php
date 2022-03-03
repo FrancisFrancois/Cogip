@@ -10,7 +10,7 @@
 
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
                 <div class="container mx-auto px-6 py-8">
-                    <h3 class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-center text-3xl leading-4 font-medium text-white uppercase tracking-wider sm:rounded-lg">Invoice : F400-357</h3>
+                    <h3 class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-center text-3xl leading-4 font-medium text-white uppercase tracking-wider sm:rounded-lg">{{ $invoice->invoice_number }}</h3>
                     <br><br>
                     <div class="flex flex-col mt-8">
                         <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
@@ -40,19 +40,19 @@
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <div class="flex items-center">
                                                    
-                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcompany">Tesla</a></div>
+                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcompany">{{ $invoice->contact->company->name }}</a></div>
                                                    
                                                 </div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                            
-                                                <div class="text-sm leading-5 text-gray-500">BE0999999999</div>
+                                                <div class="text-sm leading-5 text-gray-500">{{ $invoice->contact->company->vat_number }}</div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <span
-                                                    class="text-sm leading-5 text-gray-500">USA</span>
+                                                    class="text-sm leading-5 text-gray-500">{{ $invoice->contact->company->category }}</span>
                                             </td>
     
                                             <td
@@ -100,19 +100,19 @@
                                                 <div class="flex items-center">
                                              
                                                        
-                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcontact">Elon Musk</a></div>
+                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcontact">{{ $invoice->contact->firstname}} {{ $invoice->contact->lastname}}</a></div>
                                                     
                                                 </div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                            
-                                                <div class="text-sm leading-5 text-gray-500">elonmusk@gmail.com</div>
+                                                <div class="text-sm leading-5 text-gray-500">{{ $invoice->contact->email }}</div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <span
-                                                    class="text-sm leading-5 text-gray-500">0472/59.29.80</span>
+                                                    class="text-sm leading-5 text-gray-500">{{ $invoice->contact->phone_number }}</span>
                                             </td>
     
                                             <td

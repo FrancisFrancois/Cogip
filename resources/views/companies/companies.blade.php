@@ -36,25 +36,26 @@
                                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
                                         </tr>
                                     </thead>
+                                 @foreach ($companies as $company)
                                     <tbody class="bg-white">
                                         <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <div class="flex items-center">
                                                   
                                                        
-                                                        <div class="text-sm leading-5 text-gray-500"> <a href="/detailcompany">Amazon</a></div>
+                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcompany/{{ $company->id }}">{{ $company->name }}</a></div>
                                                     
                                                 </div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                            
-                                                <div class="text-sm leading-5 text-gray-500">BE0999999999</div>
+                                                <div class="text-sm leading-5 text-gray-500">{{ $company->vat_number }}</div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <span
-                                                    class="text-sm leading-5 text-gray-500">USA</span>
+                                                    class="text-sm leading-5 text-gray-500">{{ $company->country }}</span>
                                             </td>
     
                                             <td
@@ -67,6 +68,7 @@
                                             </td>
                                         </tr>
                                     </tbody>
+                                @endforeach
                                 </table>
                             </div>
                         </div>
@@ -96,25 +98,26 @@
                                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
                                         </tr>
                                     </thead>
+                                @foreach ($companies as $company)
                                     <tbody class="bg-white">
                                         <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <div class="flex items-center">
                                                     
                                                        
-                                                        <div class="text-sm leading-5 text-gray-500"> <a href="/detailcompany">Amazon</a></div>
+                                                        <div class="text-sm leading-5 text-gray-500"> <a href="/detailcompany">{{ $company->name }}</a></div>
                                                    
                                                 </div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                            
-                                                <div class="text-sm leading-5 text-gray-500">BE0999999999</div>
+                                                <div class="text-sm leading-5 text-gray-500">{{ $company->vat_number }}</div>
                                             </td>
     
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <span
-                                                    class="text-sm leading-5 text-gray-500">USA</span>
+                                                    class="text-sm leading-5 text-gray-500">{{ $company->country }}</span>
                                             </td>
     
                                             <td
@@ -127,6 +130,7 @@
                                             </td>
                                         </tr>
                                     </tbody>
+                                @endforeach
                                 </table>
                             </div>
                         </div>

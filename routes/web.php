@@ -22,26 +22,23 @@ use App\Http\Controllers\InvoiceController;
 Route::get('/', [AppController::class, 'index']);
 
 Route::get('/admin', [AdminController::class, 'index']);
- 
+
 
 
 Route::get('/companies', [CompanyController::class, 'index']);
 
 Route::get('/detailcompany/{id}', [CompanyController::class, 'show'])
-->where(['id' => '[0-9]+']);
+    ->where(['id' => '[0-9]+']);
 
 Route::get('/invoices', [InvoiceController::class, 'index']);
 
 Route::get('/detailinvoice/{id}', [InvoiceController::class, 'show'])
-->where(['id' => '[0-9]+']);
+    ->where(['id' => '[0-9]+']);
 
 Route::get('/contacts', [ContactController::class, 'index']);
 
 Route::get('/detailcontact/{id}', [ContactController::class, 'show'])
-->where(['id' => '[0-9]+']);
-
-
-
+    ->where(['id' => '[0-9]+']);
 
 
 
@@ -58,13 +55,9 @@ Route::get('/newcompany', function () {
     return view('edit.newcompany');
 });
 
-Route::get('/detailcontact', function () {
-    return view('contacts.detailcontact');
-});
 
-Route::get('/detailinvoice', function () {
-    return view('invoices.detailinvoice');
-});
+
+
 
 
 

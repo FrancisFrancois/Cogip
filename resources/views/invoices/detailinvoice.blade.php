@@ -40,7 +40,7 @@
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <div class="flex items-center">
                                                    
-                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcompany">{{ $invoice->contact->company->name }}</a></div>
+                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcompany/{{ $invoice->contact->company->id }}">{{ $invoice->contact->company->name }}</a></div>
                                                    
                                                 </div>
                                             </td>
@@ -98,10 +98,7 @@
                                         <tr>
                                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                 <div class="flex items-center">
-                                             
-                                                       
-                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcontact">{{ $invoice->contact->firstname}} {{ $invoice->contact->lastname}}</a></div>
-                                                    
+                                                        <div class="text-sm leading-5 text-gray-500"><a href="/detailcontact/{{ $invoice->contact->id }}">{{ $invoice->contact->firstname}} {{ $invoice->contact->lastname}}</a></div>
                                                 </div>
                                             </td>
     

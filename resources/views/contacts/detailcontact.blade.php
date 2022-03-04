@@ -106,7 +106,7 @@
                                               <div class="flex items-center">
                                                   
                                                  
-                                                      <div class="text-sm leading-5 text-gray-500"><a href="/detailinvoice">{{ $invoice->invoice_number }}</a></div>
+                                                      <div class="text-sm leading-5 text-gray-500"><a href="/detailinvoice/{{ $invoice->id }}">{{ $invoice->invoice_number }}</a></div>
                                                  
                                               </div>
                                           </td>

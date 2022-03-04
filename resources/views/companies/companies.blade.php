@@ -105,7 +105,7 @@
                                                 <div class="flex items-center">
                                                     
                                                        
-                                                        <div class="text-sm leading-5 text-gray-500"> <a href="/detailcompany">{{ $company->name }}</a></div>
+                                                        <div class="text-sm leading-5 text-gray-500"> <a href="/detailcompany/{{ $company->id }}">{{ $company->name }}</a></div>
                                                    
                                                 </div>
                                             </td>

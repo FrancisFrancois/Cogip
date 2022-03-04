@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +17,12 @@ use App\Http\Controllers\CompanyController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('layouts.app');
-});
 
 
+Route::get('/', [AppController::class, 'index']);
+
+Route::get('/admin', [AdminController::class, 'index']);
+ 
 
 
 Route::get('/companies', [CompanyController::class, 'index']);
@@ -27,18 +30,10 @@ Route::get('/companies', [CompanyController::class, 'index']);
 Route::get('/detailcompany/{id}', [CompanyController::class, 'show'])
 ->where(['id' => '[0-9]+']);
 
-
-
-
 Route::get('/invoices', [InvoiceController::class, 'index']);
 
 Route::get('/detailinvoice/{id}', [InvoiceController::class, 'show'])
 ->where(['id' => '[0-9]+']);
-
-
-
-
-
 
 Route::get('/contacts', [ContactController::class, 'index']);
 
@@ -67,15 +62,11 @@ Route::get('/detailcontact', function () {
     return view('contacts.detailcontact');
 });
 
-
-
 Route::get('/detailinvoice', function () {
     return view('invoices.detailinvoice');
 });
 
-Route::get('/admin', function () {
-    return view('layouts.admin');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

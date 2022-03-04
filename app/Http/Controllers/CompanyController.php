@@ -17,8 +17,8 @@ class CompanyController extends Controller
     public function index()
     {
         return view('companies.companies')
-        ->with('companies', Company::orderBy('name')
-        ->get());
+            ->with('companies', Company::orderBy('name')
+                ->get());
     }
 
     /**
@@ -28,7 +28,9 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        $companies = Company::all();
+
+        return view('edit.newcompany', compact('categories'));
     }
 
     /**
@@ -39,7 +41,21 @@ class CompanyController extends Controller
      */
     public function store(StoreCompanyRequest $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'country' => 'required',
+            'vat_number' => 'required',
+            'category' => 'required'
+        ]);
+
+        Company::create([
+            'name' => $request->input('name'),
+            'country' => $request->input('country'),
+            'vat_number' => $request->input('vat_number'),
+            'category' => $request->input('category')
+        ]);
+
+        return redirect('/admin')->with('message', 'The company has been added');
     }
 
     /**
@@ -51,8 +67,8 @@ class CompanyController extends Controller
     public function show($id)
     {
         return view('companies.detailcompany')
-        ->with('company', Company::where('id', $id)
-        ->first());
+            ->with('company', Company::where('id', $id)
+                ->first());
     }
 
     /**
@@ -84,7 +100,7 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function destroy($id)
     {
         //
     }

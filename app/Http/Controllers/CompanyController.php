@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
 use App\Models\Company;
@@ -30,7 +31,7 @@ class CompanyController extends Controller
     {
         $companies = Company::all();
 
-        return view('edit.newcompany', compact('categories'));
+        return view('create.newcompany', compact('companies', 'companies'));
     }
 
     /**
@@ -39,7 +40,7 @@ class CompanyController extends Controller
      * @param  \App\Http\Requests\StoreCompanyRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCompanyRequest $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -77,9 +78,11 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function edit(Company $company)
+    public function edit($id)
     {
-        //
+        $companies = Company::where('id', $id)->first();
+
+        return view('edit.editcompany', compact(['companies' => 'companies']));
     }
 
     /**
@@ -89,7 +92,7 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCompanyRequest $request, Company $company)
+    public function update($request, Company $company)
     {
         //
     }

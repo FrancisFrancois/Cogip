@@ -14,7 +14,7 @@
         <div class="container mx-auto px-6 py-8">
           <h3
             class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-center text-3xl leading-4 font-medium text-white uppercase tracking-wider sm:rounded-lg">
-            Create New Company</h3>
+            Create New Invoice</h3>
           <div class="flex flex-col mt-8">
             <div class="flex flex-col mt-2">
               <div class="flex justify-center items-center w-full">
@@ -22,22 +22,27 @@
                   <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6"></h1>
                   <form action="/" method="post">
                     <div class="flex flex-col mb-4">
-                      <label class="mb-2 font-bold text-lg text-white" for="first_name">Company Name</label>
-                      <input class="border py-2 px-3 text-grey-800" type="text" name="name" id="compan">
+                      <label class="mb-2 font-bold text-lg text-white" for="first_name">Invoice Number</label>
+                      <input class="border py-2 px-3 text-grey-800" type="text" name="invoice_number"
+                        id="invoice_number">
                     </div>
                     <div class="flex flex-col mb-4">
-                      <label class="mb-2 font-bold text-lg text-white" for="phone">Country</label>
-                      <input class="border py-2 px-3 text-grey-800" type="phone" name="country" id="country">
+                      <label class="mb-2 font-bold text-lg text-white" for="last_name">Invoice Date</label>
+                      <input class="border py-2 px-3 text-grey-800" type="text" name="invoice_date" id="invoice_date">
                     </div>
                     <div class="flex flex-col mb-4">
-                      <label class="mb-2 font-bold text-lg text-white" for="last_name">TVA Number</label>
-                      <input class="border py-2 px-3 text-grey-800" type="text" name="tva_number" id="tva_number">
-                    </div>
-                    <div class="flex flex-col mb-4">
-                      <label class="mb-2 font-bold text-lg text-white" for="Select">Company Type</label>
+                      <label class="mb-2 font-bold text-lg text-white" for="Select">Company</label>
                       <select class="border py-2 px-3 text-grey-800">
-                        <option>Supplier</option>
-                        <option>Client</option>
+                        <option>Amazon</option>
+                        <option>Tesla</option>
+                      </select>
+                    </div>
+                    <div class="flex flex-col mb-4">
+                      <label class="mb-2 font-bold text-lg text-white" for="Select">Contact person regarding the
+                        invoice</label>
+                      <select class="border py-2 px-3 text-grey-800">
+                        <option>Sophie</option>
+                        <option>Amélie</option>
                       </select>
                     </div>
                     <div class="col-span-2 text-right">
@@ -49,6 +54,7 @@
                   </form>
                 </div>
               </div>
+
             </div>
       </main>
     </div>

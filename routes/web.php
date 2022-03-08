@@ -37,12 +37,11 @@ Route::post('/newcompany', [CompanyController::class, 'store']);
 Route::get('/editcompany/{id}', [CompanyController::class, 'edit'])
     ->where(['id' => '[0-9]+']);
 
+Route::put('/editcompany/update/{id}', [CompanyController::class, 'update'])
+    ->where(['id' => '[0-9]+']);
 
-
-
-
-
-
+Route::delete('/companies/{id}', [CompaniesController::class, 'destroy'])
+    ->where(['id' => '[0-9]+']);
 
 
 
@@ -51,10 +50,18 @@ Route::get('/invoices', [InvoiceController::class, 'index']);
 Route::get('/detailinvoice/{id}', [InvoiceController::class, 'show'])
     ->where(['id' => '[0-9]+']);
 
+
+
+
 Route::get('/contacts', [ContactController::class, 'index']);
 
 Route::get('/detailcontact/{id}', [ContactController::class, 'show'])
     ->where(['id' => '[0-9]+']);
+
+Route::get('/newcontact', [ContactController::class, 'create']);
+
+Route::post('/newcontact', [ContactController::class, 'store']);
+
 
 
 
@@ -66,9 +73,7 @@ Route::get('/newinvoice', function () {
     return view('edit.newinvoice');
 });
 
-Route::get('/newcontact', function () {
-    return view('edit.newcontact');
-});
+
 
 
 

@@ -92,9 +92,25 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update($request, Company $company)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'country' => 'required',
+            'vat_number' => 'required',
+            'category' => 'required'
+        ]);
+
+        $company = Company::where('id', $id)->firstOrFail();
+
+        $company->update([
+            'name' => $request->input('name'),
+            'country' => $request->input('country'),
+            'vat_number' => $request->input('vat_number'),
+            'category' => $request->input('category')
+        ]);
+
+        return redirect('/admin')->with('message', 'The company has been updated');
     }
 
     /**
@@ -105,6 +121,7 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Company::where('id', $id)->delete();
+        return redirect('/companies')->with('message', 'The company has been deleted');
     }
 }

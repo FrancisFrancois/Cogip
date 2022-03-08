@@ -24,7 +24,7 @@
                 <div class="w-1/2 bg-gray-700 sm:rounded-lg shadow-2xl p-8 m-4">
                   <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6"></h1>
 
-                  <form action="/editcompany" method="POST">
+                  <form action="/editcompany/update/{{ $companies->id }}" method="POST">
 
                     @method("PUT")
                     @csrf

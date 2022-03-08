@@ -20,7 +20,11 @@
               <div class="flex justify-center items-center w-full">
                 <div class="w-1/2 bg-gray-700 sm:rounded-lg shadow-2xl p-8 m-4">
                   <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6"></h1>
+
                   <form action="/" method="post">
+
+                    @csrf
+                    @method("POST")
                     <div class="flex flex-col mb-4">
                       <label class="mb-2 font-bold text-lg text-white" for="first_name">Invoice Number</label>
                       <input class="border py-2 px-3 text-grey-800" type="text" name="invoice_number"

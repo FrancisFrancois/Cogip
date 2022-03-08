@@ -16,11 +16,10 @@ class ContactController extends Controller
      */
     public function index()
     {
-        
-        return view('contacts.contacts')
-        ->with('contacts', Contact::orderBy('lastname')
-        ->get());
 
+        return view('contacts.contacts')
+            ->with('contacts', Contact::orderBy('lastname')
+                ->get());
     }
 
     /**
@@ -30,7 +29,10 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+
+        $companies = Company::all();
+
+        return view('create.newcontact', compact(['companies' => 'companies']));
     }
 
     /**
@@ -39,11 +41,27 @@ class ContactController extends Controller
      * @param  \App\Http\Requests\StoreContactRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreContactRequest $request)
+    public function store($request)
     {
-       //
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required',
+            'phone_number' => 'required'
+
+        ]);
+
+        Company::create([
+            'firstname' => $request->input('firstname'),
+            'lastname' => $request->input('lastname'),
+            'email' => $request->input('email'),
+            'phone_number' => $request->input('phone_number')
+
+        ]);
+
+        return redirect('/admin')->with('message', 'The contact has been added');
     }
-    
+
 
     /**
      * Display the specified resource.
@@ -54,8 +72,8 @@ class ContactController extends Controller
     public function show($id)
     {
         return view('contacts.detailcontact')
-        ->with('contact', Contact::where('id', $id)
-        ->first());
+            ->with('contact', Contact::where('id', $id)
+                ->first());
     }
 
     /**

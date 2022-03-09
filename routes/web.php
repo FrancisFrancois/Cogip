@@ -40,8 +40,10 @@ Route::get('/editcompany/{id}', [CompanyController::class, 'edit'])
 Route::put('/editcompany/update/{id}', [CompanyController::class, 'update'])
     ->where(['id' => '[0-9]+']);
 
-Route::delete('/companies/{id}', [CompaniesController::class, 'destroy'])
+Route::delete('/editcompany/delete/{id}', [CompanyController::class, 'destroy'])
     ->where(['id' => '[0-9]+']);
+
+
 
 
 

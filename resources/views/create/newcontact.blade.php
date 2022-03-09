@@ -20,7 +20,7 @@
               <div class="flex justify-center items-center w-full">
                 <div class="w-1/2 bg-gray-700 sm:rounded-lg shadow-2xl p-8 m-4">
                   <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6"></h1>
-                  <form action="newcontact" method="post">
+                  <form action="/newcontact" method="post">
 
                     @csrf
                     @method("POST")
@@ -35,15 +35,15 @@
                     </div>
                     <div class="flex flex-col mb-4">
                       <label class="mb-2 font-bold text-lg text-white" for="phone_number">Phone</label>
-                      <input class="border py-2 px-3 text-grey-800" type="phone_number">
+                      <input class="border py-2 px-3 text-grey-800" type="tel" name="phone_number" id="phone_number">
                     </div>
                     <div class="flex flex-col mb-4">
                       <label class="mb-2 font-bold text-lg text-white" for="email">Email</label>
                       <input class="border py-2 px-3 text-grey-800" type="email" name="email" id="email">
                     </div>
                     <div class="flex flex-col mb-4">
-                      <label class="mb-2 font-bold text-lg text-white" for="company">Company</label>
-                      <select class="border py-2 px-3 text-grey-800">
+                      <label class="mb-2 font-bold text-lg text-white" for="company_id">Company</label>
+                      <select name="company_id" id="company_id" class="border py-2 px-3 text-grey-80 ">
                         <option value="null" disabled selected>Select Company</option>
                         @foreach ($companies as $company)
                           <option value="{{ $company->id }}">{{ $company->name }}</option>

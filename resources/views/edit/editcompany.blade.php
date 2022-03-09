@@ -49,11 +49,11 @@
                       <select class="border py-2 px-3 text-grey-800" name="category" id="category">
                         <option value="null" disabled selected>Select Category</option>
                         @foreach (['client', 'supplier'] as $category)
-                          <option value="{{ $category }}" {{ $category === $category ? 'selected' : '' }}>
+                          <option value="{{ $category }}"
+                            {{ $category === $companies->category ? 'selected' : '' }}>
                             {{ $category }}</option>
                         @endforeach
                       </select>
-
                     </div>
                     <div class="col-span-2 text-right">
                       <button

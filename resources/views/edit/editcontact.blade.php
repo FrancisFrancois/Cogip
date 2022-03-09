@@ -14,34 +14,46 @@
         <div class="container mx-auto px-6 py-8">
           <h3
             class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-center text-3xl leading-4 font-medium text-white uppercase tracking-wider sm:rounded-lg">
-            Create New Contact</h3>
+            Edit Contact : {{ $contact->firstname }} {{ $contact->lastname }}</h3>
           <div class="flex flex-col mt-8">
             <div class="flex flex-col mt-2">
               <div class="flex justify-center items-center w-full">
                 <div class="w-1/2 bg-gray-700 sm:rounded-lg shadow-2xl p-8 m-4">
                   <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6"></h1>
-                  <form action="/" method="post">
+                  <form action="/editcontact/update/{{ $contact->id }}" method="post">
+
+                    @csrf
+                    @method('PUT')
+
                     <div class="flex flex-col mb-4">
-                      <label class="mb-2 font-bold text-lg text-white" for="first_name">First Name</label>
-                      <input class="border py-2 px-3 text-grey-800" type="text" name="first_name" id="first_name">
+                      <label class="mb-2 font-bold text-lg text-white" for="firstname">First Name</label>
+                      <input class="border py-2 px-3 text-grey-800" type="text" name="firstname" id="firstname"
+                        value="{{ $contact->firstname }}">
                     </div>
                     <div class="flex flex-col mb-4">
-                      <label class="mb-2 font-bold text-lg text-white" for="last_name">Last Name</label>
-                      <input class="border py-2 px-3 text-grey-800" type="text" name="last_name" id="last_name">
+                      <label class="mb-2 font-bold text-lg text-white" for="lastname">Last Name</label>
+                      <input class="border py-2 px-3 text-grey-800" type="text" name="lastname" id="lastname"
+                        value="{{ $contact->lastname }}">
                     </div>
-                    <div class="flex flex-col mb-4">
-                      <label class="mb-2 font-bold text-lg text-white" for="phone">Phone</label>
-                      <input class="border py-2 px-3 text-grey-800" type="phone" name="phone" id="phone">
+                    <div class="  flex flex-col mb-4">
+                      <label class="mb-2 font-bold text-lg text-white" for="phone_number">Phone</label>
+                      <input class="border py-2 px-3 text-grey-800" type="tel" name="phone_number" id="phone_number"
+                        value="{{ $contact->phone_number }}">
                     </div>
-                    <div class="flex flex-col mb-4">
+                    <div class="  flex flex-col mb-4">
                       <label class="mb-2 font-bold text-lg text-white" for="email">Email</label>
-                      <input class="border py-2 px-3 text-grey-800" type="email" name="email" id="email">
+                      <input class="border py-2 px-3 text-grey-800" type="email" name="email" id="email"
+                        value="{{ $contact->email }}">
                     </div>
-                    <div class="flex flex-col mb-4">
-                      <label class="mb-2 font-bold text-lg text-white" for="Select">Company</label>
-                      <select class="border py-2 px-3 text-grey-800">
-                        <option>Amazon</option>
-                        <option>Tesla</option>
+                    <div class=" flex flex-col mb-4">
+                      <label class="mb-2 font-bold text-lg text-white" for="company_id">Company</label>
+                      <select name="company_id" id="company_id" class="border py-2 px-3 text-grey-80 ">
+                        <option value="null" disabled selected>Select Company</option>
+                        @foreach ($companies as $company)
+                          <option value="{{ $company->id }}"
+                            {{ $contact->company->id === $company->id ? 'selected' : '' }}>
+                            {{ $company->name }}</option>
+                        @endforeach
                       </select>
                     </div>
                     <div class="col-span-2 text-right">

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
+use App\Models\Contact;
+use App\Models\Invoice;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
-use App\Models\Contact;
-use App\Models\Company;
 
 class ContactController extends Controller
 {
@@ -29,8 +31,9 @@ class ContactController extends Controller
      */
     public function create()
     {
-
         $companies = Company::all();
+
+        $contacts = Contact::all();
 
         return view('create.newcontact', compact(['companies' => 'companies']));
     }
@@ -41,26 +44,28 @@ class ContactController extends Controller
      * @param  \App\Http\Requests\StoreContactRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($request)
+    public function store(Request $request)
     {
         $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
             'email' => 'required',
-            'phone_number' => 'required'
-
+            'phone_number' => 'required',
+            'company_id' => 'required'
         ]);
 
-        Company::create([
+
+        Contact::create([
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
             'email' => $request->input('email'),
-            'phone_number' => $request->input('phone_number')
-
+            'phone_number' => $request->input('phone_number'),
+            'company_id' => $request->input('company_id')
         ]);
 
-        return redirect('/admin')->with('message', 'The contact has been added');
+        return redirect('/dashboard')->with('message', 'The contact has been added');
     }
+
 
 
     /**
@@ -82,9 +87,13 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit($id)
     {
-        //
+        $companies = Company::all();
+
+        $contact = Contact::where('id', $id)->first();
+
+        return view('edit.editcontact', compact(['contact' => 'contact', 'companies' => 'companies']));
     }
 
     /**
@@ -94,9 +103,28 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateContactRequest $request, Contact $contact)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required',
+            'phone_number' => 'required',
+            'company_id' => 'required'
+        ]);
+
+
+        $contact = Contact::where('id', $id)->firstOrFail();
+
+        $contact->update([
+            'firstname' => $request->input('firstname'),
+            'lastname' => $request->input('lastname'),
+            'email' => $request->input('email'),
+            'phone_number' => $request->input('phone_number'),
+            'company_id' => $request->input('company_id')
+        ]);
+
+        return redirect('/admin')->with('message', 'The contact has been edited');
     }
 
     /**
@@ -105,8 +133,10 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        //
+        Contact::where('id', $id)->delete();
+
+        return redirect('/admin')->with('message', 'The company has been deleted');
     }
 }

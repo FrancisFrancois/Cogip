@@ -91,6 +91,7 @@ class ContactController extends Controller
     {
         $companies = Company::all();
 
+
         $contact = Contact::where('id', $id)->first();
 
         return view('edit.editcontact', compact(['contact' => 'contact', 'companies' => 'companies']));
@@ -116,7 +117,7 @@ class ContactController extends Controller
 
         $contact = Contact::where('id', $id)->firstOrFail();
 
-        $contact->update([
+        $contact->create([
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
             'email' => $request->input('email'),

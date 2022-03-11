@@ -66,18 +66,23 @@ Route::delete('/editcontact/delete/{id}', [ContactController::class, 'destroy'])
 
 
 
-
-
-
-
 Route::get('/invoices', [InvoiceController::class, 'index']);
 
 Route::get('/detailinvoice/{id}', [InvoiceController::class, 'show'])
     ->where(['id' => '[0-9]+']);
 
-Route::get('/newinvoice', function () {
-    return view('edit.newinvoice');
-});
+Route::get('/newinvoice', [InvoiceController::class, 'create']);
+
+Route::post('/newinvoice', [InvoiceController::class, 'store']);
+
+Route::get('/editinvoice/{id}', [InvoiceController::class, 'edit'])
+    ->where(['id' => '[0-9]+']);
+
+Route::put('/editinvoice/update/{id}', [InvoiceController::class, 'update'])
+    ->where(['id' => '[0-9]+']);
+
+Route::delete('/editinvoice/delete/{id}', [InvoiceController::class, 'destroy'])
+    ->where(['id' => '[0-9]+']);
 
 
 

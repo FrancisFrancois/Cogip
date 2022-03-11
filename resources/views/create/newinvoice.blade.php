@@ -21,32 +21,38 @@
                 <div class="w-1/2 bg-gray-700 sm:rounded-lg shadow-2xl p-8 m-4">
                   <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6"></h1>
 
-                  <form action="/" method="post">
+                  <form action="/newinvoice" method="post">
 
                     @csrf
                     @method("POST")
+
                     <div class="flex flex-col mb-4">
-                      <label class="mb-2 font-bold text-lg text-white" for="first_name">Invoice Number</label>
+                      <label class="mb-2 font-bold text-lg text-white" for="invoice_name">Invoice Number</label>
                       <input class="border py-2 px-3 text-grey-800" type="text" name="invoice_number"
                         id="invoice_number">
                     </div>
                     <div class="flex flex-col mb-4">
-                      <label class="mb-2 font-bold text-lg text-white" for="last_name">Invoice Date</label>
-                      <input class="border py-2 px-3 text-grey-800" type="text" name="invoice_date" id="invoice_date">
+                      <label class="mb-2 font-bold text-lg text-white" for="created_at">Invoice Date</label>
+                      <input class="border py-2 px-3 text-grey-800" type="date" name="created_at" id="created_at" value="DD-MM-YYYY>
                     </div>
-                    <div class="flex flex-col mb-4">
-                      <label class="mb-2 font-bold text-lg text-white" for="Select">Company</label>
-                      <select class="border py-2 px-3 text-grey-800">
-                        <option>Amazon</option>
-                        <option>Tesla</option>
+                    <div class="    flex flex-col mb-4">
+                      <label class="mb-2 font-bold text-lg text-white" for="company_id">Company</label>
+                      <select name="company_id" id="company_id" class="border py-2 px-3 text-grey-80 ">
+                        <option value="null" disabled selected>Select Company</option>
+                        @foreach ($companies as $company)
+                          <option value="{{ $company->id }}">{{ $company->name }}</option>
+                        @endforeach
                       </select>
                     </div>
                     <div class="flex flex-col mb-4">
-                      <label class="mb-2 font-bold text-lg text-white" for="Select">Contact person regarding the
+                      <label class="mb-2 font-bold text-lg text-white" for="contact_id">Contact person regarding the
                         invoice</label>
-                      <select class="border py-2 px-3 text-grey-800">
-                        <option>Sophie</option>
-                        <option>Amélie</option>
+                      <select name="contact_id" id="contact_id" class="border py-2 px-3 text-grey-80 ">
+                        <option value="null" disabled selected>Select Contact</option>
+                        @foreach ($contacts as $contact)
+                          <option value="{{ $contact->id }}">{{ $contact->firstname }} {{ $contact->lastname }}
+                          </option>
+                        @endforeach
                       </select>
                     </div>
                     <div class="col-span-2 text-right">

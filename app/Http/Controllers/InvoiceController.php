@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateInvoiceRequest;
 use App\Models\Invoice;
 use App\Models\Company;
 use App\Models\Contact;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class InvoiceController extends Controller
 {
@@ -18,7 +19,6 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        //$invoice = Invoice::all();
 
         return view('invoices.invoices')
             ->with('invoices', Invoice::orderByRaw('coalesce(updated_at, created_at) DESC')
@@ -38,7 +38,11 @@ class InvoiceController extends Controller
 
         $contacts = Contact::all();
 
-        return view('create.newinvoice', compact(['invoice' => 'invoice'], [' companies' => 'companies'], ['contacts' => 'contacts']));
+        return view('create.newinvoice', compact(
+            ['invoice' => 'invoice'],
+            [' companies' => 'companies'],
+            ['contacts' => 'contacts']
+        ));
     }
 
     /**
@@ -61,7 +65,8 @@ class InvoiceController extends Controller
             'contact_id' => $request->input('contact_id')
         ]);
 
-        return redirect('/admin')->with('message', 'The invoice has been added');
+        Alert::success('Success', 'The company has been added');
+        return redirect('/admin');
     }
 
     /**
@@ -91,7 +96,11 @@ class InvoiceController extends Controller
 
         $invoice = Invoice::where('id', $id)->first();
 
-        return view('edit.editinvoice',  compact(['invoice' => 'invoice'], [' companies' => 'companies'], ['contacts' => 'contacts']));
+        return view('edit.editinvoice',  compact(
+            ['invoice' => 'invoice'],
+            ['companies' => 'companies'],
+            ['contacts' => 'contacts']
+        ));
     }
 
     /**
@@ -101,9 +110,24 @@ class InvoiceController extends Controller
      * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateInvoiceRequest $request, Invoice $invoice)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'invoice_number' => 'required',
+            'created_at' => 'required',
+            'contact_id' => 'required'
+        ]);
+
+        $invoice = Invoice::where('id', $id)->firstOrFail();
+
+        $invoice->update([
+            'invoice_number' => $request->input('invoice_number'),
+            'created_at' => $request->input('created_at'),
+            'contact_id' => $request->input('contact_id')
+        ]);
+
+        Alert::success('Success', 'The invoice has been updated');
+        return redirect('/admin');
     }
 
     /**
@@ -112,8 +136,10 @@ class InvoiceController extends Controller
      * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Invoice $invoice)
+    public function destroy($id)
     {
-        //
+        Invoice::where('id', $id)->delete();
+
+        return redirect('/admin')->with('message', 'The invoice has been deleted');
     }
 }

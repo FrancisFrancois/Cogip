@@ -24,7 +24,7 @@
                   <form action="/editinvoice/update/{{ $invoice->id }}" method="post">
 
                     @csrf
-                    @method("POST")
+                    @method("PUT")
 
                     <div class="flex flex-col mb-4">
                       <label class="mb-2 font-bold text-lg text-white" for="invoice_name">Invoice Number</label>

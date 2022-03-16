@@ -8,6 +8,7 @@ use App\Models\Invoice;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ContactController extends Controller
 {
@@ -63,7 +64,8 @@ class ContactController extends Controller
             'company_id' => $request->input('company_id')
         ]);
 
-        return redirect('/dashboard')->with('message', 'The contact has been added');
+        Alert::success('Success', 'The contact has been added');
+        return redirect('/admin');
     }
 
 
@@ -116,7 +118,7 @@ class ContactController extends Controller
 
         $contact = Contact::where('id', $id)->firstOrFail();
 
-        $contact->create([
+        $contact->update([
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
             'email' => $request->input('email'),
@@ -124,7 +126,8 @@ class ContactController extends Controller
             'company_id' => $request->input('company_id')
         ]);
 
-        return redirect('/admin')->with('message', 'The contact has been edited');
+        Alert::success('Success', 'The contact has been updated');
+        return redirect('/admin');
     }
 
     /**

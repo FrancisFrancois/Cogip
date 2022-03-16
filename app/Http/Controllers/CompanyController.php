@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
-use App\Models\Company;
-use App\Models\Contact;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class CompanyController extends Controller
 {
@@ -56,7 +58,8 @@ class CompanyController extends Controller
             'category' => $request->input('category')
         ]);
 
-        return redirect('/admin')->with('message', 'The company has been added');
+        Alert::success('Success', 'The company has been added');
+        return redirect('/admin');
     }
 
     /**
@@ -110,7 +113,8 @@ class CompanyController extends Controller
             'category' => $request->input('category')
         ]);
 
-        return redirect('/admin')->with('message', 'The company has been updated');
+        Alert::success('Success', 'The company has been updated');
+        return redirect('/admin');
     }
 
     /**

@@ -7,6 +7,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\InvoiceController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

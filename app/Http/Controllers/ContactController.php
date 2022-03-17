@@ -140,6 +140,7 @@ class ContactController extends Controller
     {
         Contact::where('id', $id)->delete();
 
-        return redirect('/admin')->with('message', 'The company has been deleted');
+        Alert::success('Success', 'The contact has been deleted');
+        return redirect('/admin');
     }
 }

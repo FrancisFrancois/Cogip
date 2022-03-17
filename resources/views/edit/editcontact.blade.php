@@ -50,7 +50,8 @@
                       <select name="company_id" id="company_id" class="border py-2 px-3 text-grey-80 ">
                         <option value="null" disabled selected>Select Company</option>
                         @foreach ($companies as $company)
-                          <option value="{{ $company->id }}" {{ $contact->id === $company->id ? 'selected' : '' }}>
+                          <option value="{{ $company->id }}"
+                            {{ $company->id === $contact->company->id ? 'selected' : '' }}>
                             {{ $company->name }}
                           </option>
                         @endforeach

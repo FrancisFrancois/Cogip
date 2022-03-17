@@ -19,7 +19,6 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-
         return view('invoices.invoices')
             ->with('invoices', Invoice::orderByRaw('coalesce(updated_at, created_at) DESC')
                 ->get());
@@ -40,7 +39,7 @@ class InvoiceController extends Controller
 
         return view('create.newinvoice', compact(
             ['invoice' => 'invoice'],
-            [' companies' => 'companies'],
+            ['companies' => 'companies'],
             ['contacts' => 'contacts']
         ));
     }
@@ -140,6 +139,7 @@ class InvoiceController extends Controller
     {
         Invoice::where('id', $id)->delete();
 
-        return redirect('/admin')->with('message', 'The invoice has been deleted');
+        Alert::success('Success', 'The invoice has been deleted');
+        return redirect('/admin');
     }
 }

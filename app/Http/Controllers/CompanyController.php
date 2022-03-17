@@ -127,6 +127,7 @@ class CompanyController extends Controller
     {
         Company::where('id', $id)->delete();
 
-        return redirect('/admin')->with('message', 'The company has been deleted');
+        Alert::success('Success', 'The company has been deleted');
+        return redirect('/admin');
     }
 }

@@ -17,7 +17,7 @@
             Welcome to the Cogip</h3>
           <br><br>
           <h4
-            class="px-6 py-3 border-b text-left text-3xl leading-4 font-small text-gray-700 uppercase tracking-wider sm:rounded-lg">
+            class="px-6 py-3 border-b text-center text-3xl leading-4 font-small text-gray-700 uppercase tracking-wider sm:rounded-lg">
             Bienvenue dans l'espace de connexion de la Cogip</h4>
 
           <x-guest-layout>
@@ -86,5 +86,3 @@
   </div>
   </div>
 </body>
-
-</html>

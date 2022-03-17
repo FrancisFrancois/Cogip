@@ -86,7 +86,8 @@
 
                         <td
                           class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                          <form action="editinvoice/delete/{{ $invoice->id }}" method="POST">
+                          <form action="editinvoice/delete/{{ $invoice->id }}" method="POST"
+                            onsubmit="return confirm('Do you want to delete this invoice ?')">
                             @csrf
                             @method('DELETE')
 

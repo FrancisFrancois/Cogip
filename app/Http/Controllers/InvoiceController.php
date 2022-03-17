@@ -64,7 +64,7 @@ class InvoiceController extends Controller
             'contact_id' => $request->input('contact_id')
         ]);
 
-        Alert::success('Success', 'The company has been added');
+        Alert::success('Success', 'The contact has been added');
         return redirect('/admin');
     }
 
@@ -113,7 +113,7 @@ class InvoiceController extends Controller
     {
         $request->validate([
             'invoice_number' => 'required',
-            'created_at' => 'required',
+            'updated_at' => 'required',
             'contact_id' => 'required'
         ]);
 
@@ -121,7 +121,7 @@ class InvoiceController extends Controller
 
         $invoice->update([
             'invoice_number' => $request->input('invoice_number'),
-            'created_at' => $request->input('created_at'),
+            'updated_at' => $request->input('updated_at'),
             'contact_id' => $request->input('contact_id')
         ]);
 

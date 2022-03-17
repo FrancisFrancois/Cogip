@@ -33,7 +33,7 @@
                     </div>
                     <div class="flex flex-col mb-4">
                       <label class="mb-2 font-bold text-lg text-white" for="created_at">Invoice Date</label>
-                      <input class="border py-2 px-3 text-grey-800" type="date" name="created_at" id="created_at"
+                      <input class="border py-2 px-3 text-grey-800" type="date" name="updated_at" id="updated_at"
                         value="{{ $invoice->created_at->format('Y-m-d') }}">
                     </div>
                     <div class="flex flex-col mb-4">

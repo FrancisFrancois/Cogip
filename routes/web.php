@@ -21,7 +21,7 @@ use App\Http\Controllers\InvoiceController;
 
 
 
-
+Route::get('/', [AppController::class, 'index']);
 
 Route::middleware((['auth', 'role:admin']))->group(function () {
 
@@ -55,8 +55,6 @@ Route::middleware((['auth', 'role:admin']))->group(function () {
 
 
 Route::middleware((['auth', 'role:editor']))->group(function () {
-
-    Route::get('/', [AppController::class, 'index']);
 
     Route::get('/companies', [CompanyController::class, 'index']);
 

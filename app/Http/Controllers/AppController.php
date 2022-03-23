@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Company;
 use App\Models\Contact;
 use App\Models\Invoice;
+use Illuminate\Http\Request;
 
 class AppController extends Controller
 {

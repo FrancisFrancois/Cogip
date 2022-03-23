@@ -64,7 +64,7 @@ class InvoiceController extends Controller
             'contact_id' => $request->input('contact_id')
         ]);
 
-        Alert::success('Success', 'The contact has been added');
+        Alert::success('Success', 'The invoice has been added');
         return redirect('/admin');
     }
 

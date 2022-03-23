@@ -28,7 +28,7 @@
 
                     <div class="flex flex-col mb-4">
                       <label class="mb-2 font-bold text-lg text-white" for="invoice_name">Invoice Number</label>
-                      <input class="border py-2 px-3 text-grey-800" type="text" name="invoice_number"
+                      <input class="border py-2 px-3 text-grey-800" type="text" name="invoice_number" value="F400-"
                         id="invoice_number">
                     </div>
                     <div class="flex flex-col mb-4">

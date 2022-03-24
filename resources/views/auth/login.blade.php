@@ -11,6 +11,12 @@
       @include('partials.navbar')
 
       <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
+        <?php
+        $DATABASE_URL = parse_url(getenv('DATABASE_URL'));
+        
+        echo $DATABASE_URL['host'];
+        
+        ?>
         <div class="container mx-auto px-6 py-8">
           <h3
             class="px-6 py-3 border-b border-gray-200 bg-gray-700 text-center text-3xl leading-4 font-medium text-white uppercase tracking-wider sm:rounded-lg">

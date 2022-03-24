@@ -21,7 +21,7 @@ use App\Http\Controllers\InvoiceController;
 
 
 
-Route::get('/', [AppController::class, 'index']);
+
 
 Route::middleware((['auth', 'role:admin']))->group(function () {
 

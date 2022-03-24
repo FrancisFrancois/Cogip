@@ -15,7 +15,10 @@
         $DATABASE_URL = parse_url(getenv('DATABASE_URL'));
         
         echo $DATABASE_URL['host'];
-        
+        echo $DATABASE_URL["port"],
+            echo ltrim($DATABASE_URL["path"], "/"),
+            echo $DATABASE_URL["user"],
+            echo $DATABASE_URL["pass"],
         ?>
         <div class="container mx-auto px-6 py-8">
           <h3
